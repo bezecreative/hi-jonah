@@ -94,6 +94,13 @@
       gap: clamp(10px, 3.15vw, 22px);
     }
 
+    header .logo-link {
+      display: block;
+      flex: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    header .logo-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
     header img {
       display: block;
       width: auto;
@@ -320,9 +327,11 @@
 <body>
   <div class="hero">
   <header>
-    <img class="mox" alt="Mox Collective"
-         src="https://framerusercontent.com/images/qEUvrwGl1OdKN8lUghRyZnsFfj0.png?scale-down-to=2048&width=12752&height=3596"
-         width="2048" height="578">
+    <a class="logo-link" href="https://wearemox.com/" target="_blank" rel="noopener" aria-label="Mox Collective website">
+      <img class="mox" alt="Mox Collective"
+           src="https://framerusercontent.com/images/qEUvrwGl1OdKN8lUghRyZnsFfj0.png?scale-down-to=2048&width=12752&height=3596"
+           width="2048" height="578">
+    </a>
     <svg class="x" viewBox="0 0 24 24" role="img" aria-label="and">
       <path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
     </svg>
