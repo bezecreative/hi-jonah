@@ -306,46 +306,9 @@
       height: auto;
       filter: brightness(0) invert(1);
     }
-
-    /* Cookie loading screen. Visible by default so it paints before anything
-       else, then removed by the script once the animation has played. */
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background-color: rgba(11, 11, 11, 1);
-      /* The background fades instead of the whole overlay, so the cookie
-         stays visible while it floats up and the page appears behind it. */
-      transition: background-color 0.9s ease, visibility 0s linear 1s;
-    }
-    .loader.done {
-      background-color: rgba(11, 11, 11, 0);
-      visibility: hidden;
-      pointer-events: none;
-    }
-    /* The cookie fills only about a third of its 1600px canvas, so the
-       canvas is larger than the cookie appears. */
-    .loader .cookie {
-      width: min(300px, 78vw);
-      aspect-ratio: 1;
-      flex: none;
-      transition: transform 1s cubic-bezier(0.5, 0, 0.75, 0.4), opacity 0.8s ease 0.2s;
-    }
-    .loader.done .cookie {
-      transform: translateY(-46vh);
-      opacity: 0;
-    }
-    html.loading, html.loading body { overflow: hidden; }
   </style>
-  <noscript><style>.loader{display:none}</style></noscript>
 </head>
 <body>
-  <div class="loader" id="loader" aria-hidden="true"><div class="cookie" id="cookie"></div></div>
-  <script>document.documentElement.classList.add("loading");</script>
   <div class="hero">
   <header>
     <img class="mox" alt="Mox Collective"
@@ -412,36 +375,6 @@
     </div>
 
   </section>
-  <!-- Cookie loading screen -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"
-          onerror="window.__lottieFailed = true"></script>
-  <script>
-    (function () {
-      var loader = document.getElementById("loader");
-      var finished = false;
-      function finish() {
-        if (finished) return;
-        finished = true;
-        loader.classList.add("done");
-        document.documentElement.classList.remove("loading");
-        setTimeout(function () { loader.remove(); }, 1200);
-      }
-      // Never trap the visitor: bail out if anything stalls.
-      var failsafe = setTimeout(finish, 4500);
-      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced || window.__lottieFailed || !window.lottie) { clearTimeout(failsafe); finish(); return; }
-      var anim = lottie.loadAnimation({
-        container: document.getElementById("cookie"),
-        renderer: "svg",
-        loop: false,
-        autoplay: true,
-        path: "cookie.json"
-      });
-      anim.setSpeed(1.25);
-      anim.addEventListener("complete", function () { clearTimeout(failsafe); setTimeout(finish, 250); });
-      anim.addEventListener("data_failed", function () { clearTimeout(failsafe); finish(); });
-    })();
-  </script>
   <!-- Vercel Web Analytics -->
   <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
   <script defer src="/_vercel/insights/script.js"></script>
