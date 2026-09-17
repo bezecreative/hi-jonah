@@ -315,14 +315,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0b0b0b;
-      transition: opacity 0.45s ease, visibility 0.45s ease;
+      overflow: hidden;
+      background-color: rgba(11, 11, 11, 1);
+      /* The background fades instead of the whole overlay, so the cookie
+         stays visible while it floats up and the page appears behind it. */
+      transition: background-color 0.9s ease, visibility 0s linear 1s;
     }
-    .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader.done {
+      background-color: rgba(11, 11, 11, 0);
+      visibility: hidden;
+      pointer-events: none;
+    }
     /* The cookie fills only about a third of its 1600px canvas, so the
-       canvas is oversized to give the cookie real presence. */
-    .loader .cookie { width: min(460px, 118vw); aspect-ratio: 1; flex: none; }
-    .loader { overflow: hidden; }
+       canvas is larger than the cookie appears. */
+    .loader .cookie {
+      width: min(300px, 78vw);
+      aspect-ratio: 1;
+      flex: none;
+      transition: transform 1s cubic-bezier(0.5, 0, 0.75, 0.4), opacity 0.8s ease 0.2s;
+    }
+    .loader.done .cookie {
+      transform: translateY(-46vh);
+      opacity: 0;
+    }
     html.loading, html.loading body { overflow: hidden; }
   </style>
   <noscript><style>.loader{display:none}</style></noscript>
@@ -408,7 +423,7 @@
         finished = true;
         loader.classList.add("done");
         document.documentElement.classList.remove("loading");
-        setTimeout(function () { loader.remove(); }, 600);
+        setTimeout(function () { loader.remove(); }, 1200);
       }
       // Never trap the visitor: bail out if anything stalls.
       var failsafe = setTimeout(finish, 4500);
