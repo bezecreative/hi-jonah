@@ -28,6 +28,14 @@
       font-weight: 700;
     }
 
+    @font-face {
+      font-family: "Indivisible Regular";
+      src: url("https://framerusercontent.com/assets/ePtizXUtg9n5E85CG4aoU6DaGA.woff2") format("woff2");
+      font-display: swap;
+      font-style: normal;
+      font-weight: 400;
+    }
+
     :root {
       --red: #e1251b;
       --red-pressed: #b81c14;
@@ -244,6 +252,34 @@
 
     /* The TMN SVG is only 56px wide natively, so it needs an explicit width. */
     .logos img.tmn { width: min(107px, 30.6vw); max-height: none; }
+
+    .peak {
+      margin: clamp(64px, 16vw, 96px) auto 0;
+      width: min(280px, 78vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      font-family: "Indivisible Regular", "Indivisible Bold Placeholder", sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .peak svg { width: 58%; height: auto; display: block; }
+    .peak .name {
+      margin-top: 0.12em;
+      font-size: clamp(2.5rem, 12.5vw, 3.125rem);
+      letter-spacing: 0.06em;
+      margin-right: -0.06em;
+      white-space: nowrap;
+    }
+    .peak .tag {
+      margin-top: 0.7em;
+      font-size: clamp(0.6875rem, 3.3vw, 0.8125rem);
+      letter-spacing: 0.04em;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -299,6 +335,16 @@
       <li><img class="tmn" alt="TMN" loading="lazy" width="56" height="32"
                src="https://res.cloudinary.com/dbwtszgtb/image/upload/White_TMN.svg"></li>
     </ul>
+
+    <div class="peak" role="img" aria-label="Peak 43: Idaho's Fastest Growing Businesses 2026">
+      <svg viewBox="0 0 300 124" fill="currentColor" aria-hidden="true">
+        <polygon points="0,108 84,48 108,72 80,84 88,94 34,116 40,104"/>
+        <polygon points="160,0 220,62 200,56 208,80 176,52 161,78 149,61 100,116 66,124 108,88 94,93 118,66 112,60"/>
+        <polygon points="214,66 228,44 300,122 266,104 269,118 236,88 232,102"/>
+      </svg>
+      <span class="name" aria-hidden="true">Peak 43</span>
+      <span class="tag" aria-hidden="true">Idaho&rsquo;s Fastest Growing Businesses 2026</span>
+    </div>
   </section>
 </body>
 </html>
