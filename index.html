@@ -210,40 +210,26 @@
       list-style: none;
       margin: 0 auto;
       padding: 0;
-      max-width: 1000px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: clamp(20px, 6vw, 40px);
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(44px, 12vw, 64px);
     }
 
-    .logos li {
-      width: calc(50% - clamp(10px, 3vw, 20px));
-      max-width: 168px;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .logos li { display: flex; justify-content: center; }
 
     .logos img {
       display: block;
-      max-width: 100%;
-      max-height: 100%;
       width: auto;
       height: auto;
+      max-width: min(220px, 62vw);
+      max-height: 110px;
       object-fit: contain;
     }
 
-    /* Square and tall marks read larger than wide wordmarks at the same
-       box size, so they are pulled in a little. */
-    .logos img.tall { max-width: 78%; max-height: 78%; }
-
-    .logos li.blank {
-      border: 2px solid #fff;
-      aspect-ratio: 1;
-      transform: scale(0.78);
-    }
+    /* Square and tall marks need more height than wide wordmarks to
+       carry the same visual weight. */
+    .logos img.tall { max-height: 150px; }
   </style>
 </head>
 <body>
@@ -270,7 +256,7 @@
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1L6.6 10.8z"/>
       </svg>
-      Call (208) 608-8300
+      Call Jonah
     </a>
     </div>
   </main>
@@ -294,7 +280,6 @@
                src="https://framerusercontent.com/images/rTu9W0JEd8wjKfNw2Y4QfmpRP0.png?scale-down-to=512&width=1476&height=800"></li>
       <li><img class="tall" alt="Boise Schools" loading="lazy" width="812" height="1024"
                src="https://framerusercontent.com/images/u9OLX8kPBxuHvwYEX0Upx2VrgI.png?scale-down-to=1024&width=825&height=1041"></li>
-      <li class="blank" aria-hidden="true"></li>
     </ul>
   </section>
 </body>
