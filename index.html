@@ -154,6 +154,9 @@
     }
 
     .access {
+      /* The float lives on the wrapper so the button keeps its own
+         press-down transform. */
+      animation: bob 2.4s ease-in-out infinite;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -208,7 +211,6 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      animation: bob 1.8s ease-in-out infinite;
       -webkit-tap-highlight-color: transparent;
     }
     .arrow svg { width: 30px; height: 30px; }
@@ -219,7 +221,7 @@
       50%      { transform: translateY(4px); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .arrow { animation: none; }
+      .access { animation: none; }
       html { scroll-behavior: auto !important; }
     }
 
