@@ -99,11 +99,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: flex-end;
       text-align: center;
-      gap: clamp(28px, 7vw, 48px);
-      padding: 9vh 24px 21vh;
-      padding: 9svh 24px 21svh;
+      gap: clamp(36px, 9vh, 84px);
+      gap: clamp(36px, 9svh, 84px);
+      padding: 32px 24px 21vh;
+      padding: 32px 24px 21svh;
     }
 
     h1 {
@@ -125,8 +126,6 @@
       flex-direction: column;
       align-items: center;
       gap: 16px;
-      /* Pushes the call block to the bottom of the first screen, just above the arrow. */
-      margin-top: auto;
     }
 
     .lead {
@@ -222,7 +221,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(31px, 8.4vw, 45px);
+      gap: clamp(33px, 9vw, 48px);
     }
 
     .logos li { display: flex; justify-content: center; }
@@ -231,17 +230,17 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: min(154px, 43vw);
-      max-height: 77px;
+      max-width: min(139px, 38.7vw);
+      max-height: 69px;
       object-fit: contain;
     }
 
     /* Square and tall marks need more height than wide wordmarks to
        carry the same visual weight. */
-    .logos img.tall { max-height: 105px; }
+    .logos img.tall { max-height: 95px; }
 
     /* The TMN SVG is only 56px wide natively, so it needs an explicit width. */
-    .logos img.tmn { width: min(119px, 34vw); max-height: none; }
+    .logos img.tmn { width: min(107px, 30.6vw); max-height: none; }
   </style>
 </head>
 <body>
