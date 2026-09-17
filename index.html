@@ -71,8 +71,17 @@
     body::before {
       content: "";
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* lvh = the viewport with the mobile address bar hidden. Sizing to it
+         keeps this box a constant height, so the cover-sized image does not
+         re-scale and jump when the bar slides away on first scroll. */
+      height: 100vh;
+      height: 100lvh;
       z-index: -1;
+      transform: translateZ(0);
+      will-change: transform;
       background: #0b0b0b url("https://framerusercontent.com/images/D6LUktxLOs30j8QU5pGXyK7lwKA.png") 82% 100% / cover no-repeat;
     }
 
