@@ -2,29 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi Jonah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Mox × ESI</title>
+  <link rel="preconnect" href="https://framerusercontent.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="https://framerusercontent.com/assets/mxKkbXd3Ku1mfoibJQmr32elZmA.woff2">
   <style>
+    @font-face {
+      font-family: "Indivisible Bold Placeholder";
+      src: local("Arial");
+      ascent-override: 82.16%;
+      descent-override: 27.39%;
+      line-gap-override: 0%;
+      size-adjust: 109.54%;
+    }
+    @font-face {
+      font-family: "Indivisible Bold";
+      src: url("https://framerusercontent.com/assets/mxKkbXd3Ku1mfoibJQmr32elZmA.woff2") format("woff2");
+      font-display: swap;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    :root {
+      --red: #e1251b;
+      --red-pressed: #b81c14;
+      --font: "Indivisible Bold", "Indivisible Bold Placeholder", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { background: #0b0b0b; }
+
     html, body {
       margin: 0;
-      height: 100%;
-      background: #fff;
-      color: #111;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100%;
+      color: #fff;
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
     }
+
     body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Fixed full-screen background. A pseudo-element is used because
+       background-attachment: fixed is unreliable on iOS Safari. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: #0b0b0b url("https://framerusercontent.com/images/D6LUktxLOs30j8QU5pGXyK7lwKA.png") 82% 100% / cover no-repeat;
+    }
+
+    header {
+      background: #000;
+      padding: calc(20px + env(safe-area-inset-top)) 20px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: clamp(14px, 4.5vw, 32px);
     }
+
+    header img {
+      display: block;
+      width: auto;
+      height: clamp(34px, 10.5vw, 64px);
+    }
+
+    /* The ESI artwork is taller than the Mox wordmark, so it gets a
+       little more height to feel optically balanced. */
+    header img.esi { height: clamp(40px, 12.5vw, 76px); }
+
+    .x {
+      flex: none;
+      width: clamp(18px, 5.5vw, 32px);
+      height: clamp(18px, 5.5vw, 32px);
+      color: var(--red);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: clamp(28px, 7vw, 48px);
+      padding: 48px 24px calc(56px + env(safe-area-inset-bottom));
+    }
+
     h1 {
-      font-size: clamp(2.5rem, 10vw, 6rem);
-      font-weight: 600;
       margin: 0;
+      max-width: 18ch;
+      font-size: clamp(2rem, 8.2vw, 4.25rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
     }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 360px;
+      min-height: 60px;
+      padding: 16px 28px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font);
+      font-size: clamp(1.125rem, 4.8vw, 1.375rem);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(225, 37, 27, 0.35);
+      transition: background-color 0.15s ease, transform 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta:hover { background: #f0342a; }
+    .cta:active { background: var(--red-pressed); transform: scale(0.98); }
+    .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .cta svg { width: 1.15em; height: 1.15em; flex: none; }
   </style>
 </head>
 <body>
-  <h1>Hi Jonah</h1>
+  <header>
+    <img class="mox" alt="Mox Collective"
+         src="https://framerusercontent.com/images/qEUvrwGl1OdKN8lUghRyZnsFfj0.png?scale-down-to=2048&width=12752&height=3596"
+         width="2048" height="578">
+    <svg class="x" viewBox="0 0 24 24" role="img" aria-label="and">
+      <path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
+    </svg>
+    <img class="esi" alt="ESI Construction"
+         src="https://esiconstruction.com/wp-content/themes/esi/img/ESI-New-logo.png"
+         width="1853" height="708">
+  </header>
+
+  <main>
+    <h1>Your current website says &ldquo;challenge accepted&rdquo; so we knew you were the type to take this on.</h1>
+
+    <a class="cta" href="tel:+12086088300">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1L6.6 10.8z"/>
+      </svg>
+      Call (208) 608-8300
+    </a>
+  </main>
 </body>
 </html>
