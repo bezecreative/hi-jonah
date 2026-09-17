@@ -286,6 +286,25 @@
       line-height: 1.35;
       white-space: nowrap;
     }
+
+    /* The source artwork is black and red on transparent. The filter
+       flattens every opaque pixel to white so it reads on the dark page. */
+    .member {
+      margin: clamp(48px, 12vw, 64px) 0 14px;
+      font-size: clamp(0.8125rem, 3.6vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .agc {
+      display: block;
+      margin: 0 auto;
+      width: min(190px, 53vw);
+      height: auto;
+      filter: brightness(0) invert(1);
+    }
   </style>
 </head>
 <body>
@@ -349,6 +368,10 @@
       <span class="name" aria-hidden="true">Peak 43</span>
       <span class="tag" aria-hidden="true">Idaho&rsquo;s Fastest Growing Businesses 2026</span>
     </div>
+
+    <p class="member">Proud member of</p>
+    <img class="agc" alt="Idaho AGC: The Construction Association" loading="lazy" width="2870" height="655"
+         src="https://www.idahoagc.org/sites/default/files/logo_0.png">
   </section>
 </body>
 </html>
