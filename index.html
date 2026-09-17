@@ -99,11 +99,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       gap: clamp(28px, 7vw, 48px);
-      padding: 40px 24px 18vh;
-      padding: 40px 24px 18svh;
+      padding: 9vh 24px 21vh;
+      padding: 9svh 24px 21svh;
     }
 
     h1 {
@@ -125,6 +125,8 @@
       flex-direction: column;
       align-items: center;
       gap: 16px;
+      /* Pushes the call block to the bottom of the first screen, just above the arrow. */
+      margin-top: auto;
     }
 
     .lead {
@@ -196,7 +198,9 @@
     }
 
     .clients .ps {
-      margin: 0 0 10px;
+      margin: 0 auto 10px;
+      max-width: 22ch;
+      text-wrap: balance;
       font-size: clamp(1.0625rem, 4.6vw, 1.5rem);
       font-weight: 700;
       line-height: 1.3;
@@ -218,7 +222,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(44px, 12vw, 64px);
+      gap: clamp(31px, 8.4vw, 45px);
     }
 
     .logos li { display: flex; justify-content: center; }
@@ -227,17 +231,17 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: min(220px, 62vw);
-      max-height: 110px;
+      max-width: min(154px, 43vw);
+      max-height: 77px;
       object-fit: contain;
     }
 
     /* Square and tall marks need more height than wide wordmarks to
        carry the same visual weight. */
-    .logos img.tall { max-height: 150px; }
+    .logos img.tall { max-height: 105px; }
 
     /* The TMN SVG is only 56px wide natively, so it needs an explicit width. */
-    .logos img.tmn { width: min(170px, 48vw); max-height: none; }
+    .logos img.tmn { width: min(119px, 34vw); max-height: none; }
   </style>
 </head>
 <body>
