@@ -260,7 +260,7 @@
     .logos img.tmn { width: min(107px, 30.6vw); max-height: none; }
 
     .peak {
-      margin: clamp(64px, 16vw, 96px) auto 0;
+      margin: 0 auto;
       width: min(168px, 47vw);
       display: flex;
       flex-direction: column;
@@ -290,7 +290,7 @@
     /* The source artwork is black and red on transparent. The filter
        flattens every opaque pixel to white so it reads on the dark page. */
     .member {
-      margin: clamp(48px, 12vw, 64px) 0 14px;
+      margin: clamp(64px, 16vw, 96px) 0 22px;
       font-size: clamp(0.8125rem, 3.6vw, 1rem);
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -300,7 +300,7 @@
 
     .agc {
       display: block;
-      margin: 0 auto;
+      margin: clamp(36px, 9vw, 48px) auto 0;
       width: min(190px, 53vw);
       height: auto;
       filter: brightness(0) invert(1);
@@ -359,6 +359,7 @@
                src="https://res.cloudinary.com/dbwtszgtb/image/upload/White_TMN.svg"></li>
     </ul>
 
+    <p class="member">Proud member of</p>
     <div class="peak" role="img" aria-label="Peak 43: Idaho's Fastest Growing Businesses 2026">
       <svg viewBox="0 0 300 124" fill="currentColor" aria-hidden="true">
         <polygon points="0,108 84,48 108,72 80,84 88,94 34,116 40,104"/>
@@ -369,7 +370,6 @@
       <span class="tag" aria-hidden="true">Idaho&rsquo;s Fastest Growing Businesses 2026</span>
     </div>
 
-    <p class="member">Proud member of</p>
     <img class="agc" alt="Idaho AGC: The Construction Association" loading="lazy" width="2870" height="655"
          src="https://www.idahoagc.org/sites/default/files/logo_0.png">
   </section>
